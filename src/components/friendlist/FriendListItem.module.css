@@ -1,0 +1,15 @@
+.nameTitle {
+    font-weight: 500;
+    font-size: 24px;
+}
+.online {
+    font-size: 16px;
+    font-weight: 500;
+    color: green;
+}
+
+.offline {
+    font-size: 16px;
+    font-weight: 500;
+    color: red;
+}
