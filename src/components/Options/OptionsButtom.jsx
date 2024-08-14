@@ -1,7 +1,9 @@
-import css from './OptionsButton.module.css';
+import { optionsButton } from "./OptionsButton.module.css";
 
-export default function OptionsButton({handlers,children,type}) {
-  return(
-    <button className={css.optionsButton} onClick={()=>handlers(type)}>{children}</button>
-  )
+export default function OptionsButton({ handlers, children, type }) {
+  return (
+    <button className={optionsButton} onClick={() => handlers(type)}>
+      {children}
+    </button>
+  );
 }
