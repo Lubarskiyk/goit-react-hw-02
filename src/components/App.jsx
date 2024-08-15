@@ -1,5 +1,5 @@
 import "./App.css";
-import Header from "./Header/Header.jsx";
+import Description from "./Description/Description.jsx";
 import Options from "./Options/Options.jsx";
 import Feedback from "./Feedback/Feedback.jsx";
 import Notification from "./Notification/Notification.jsx";
@@ -36,17 +36,26 @@ function App() {
       [feedbackType]: values[feedbackType] + 1,
     });
   }
-
   const totalFeedback = values.good + values.neutral + values.bad;
+  const positiveFeedback = Math.round((values.good / totalFeedback) * 100);
+
   return (
     <>
-      <Header />
+      <Description />
       <Options
         handler={updateFeedback}
         reset={resetFeedback}
         total={totalFeedback}
       />
-      {totalFeedback > 0 ? <Feedback values={values} /> : <Notification />}
+      {totalFeedback > 0 ? (
+        <Feedback
+          values={values}
+          totalFeedback={totalFeedback}
+          positiveFeedback={positiveFeedback}
+        />
+      ) : (
+        <Notification />
+      )}
     </>
   );
 }
